@@ -212,6 +212,8 @@ export default function watch ( rollup, options ) {
 
 	// in case we ever support stdin!
 	process.stdin.on('end', close);
+	// Activate handler processing on stdin so `close` will be called properly
+	process.stdin.resume();
 
 	return watcher;
 }
